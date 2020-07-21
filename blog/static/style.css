@@ -48,11 +48,7 @@ margin-right:5px !important;
     background-image: -webkit-linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0)); 
     background-image: -moz-linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));  
      
-      -moz-transition: all 0.5s ease-out; 
-        -o-transition: all 0.5s ease-out; 
-   -webkit-transition: all 0.5s ease-out;
-       -ms-transition: all 0.5s ease-out;
- }
+}
  
  .button:hover:before {
    top: 200%;
