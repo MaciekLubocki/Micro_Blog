@@ -5,10 +5,11 @@
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  <meta name="description" content="">
- <title>Mój pierwszy blog</title>
-
+ <title>{Micro Blog}</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   
  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/starter-template/">
-
+ <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
  <!-- Bootstrap core CSS -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -20,22 +21,35 @@
  </style>
 </head>
 
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <ul class="navbar-nav mr-auto">
+  </ul>
+</div>
+
+
 <body>
- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-   <a class="navbar-brand" href="#">Mój blog</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+  <div class="container_main">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top fontheader color_top">
+    <a class="navbar-brand color_top_main" href="\">{ Micro Blog }: </a>
+   <a class="navbar-brand color_top" href="\new-post\"><span>Add</span></a>
+   <a class="navbar-brand color_top"><span>or</span></a>
+  <a class="navbar-brand color_top" href="\drafts\"><span>Edit</span></a>
+   <button class="navbar-toggler color_top" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
+        </button>
 
    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
      <ul class="navbar-nav mr-auto">
      </ul>
-     <form class="form-inline my-2 my-lg-0">
-       <input class="form-control mr-sm-2" type="text" placeholder="Szukaj" aria-label="Szukaj">
-       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Szukaj</button>
+     {% if session.logged_in %}
+     <form class="form-inline my-2 my-lg-0" action="{{ url_for('logout') }}" method="POST">
+       <button class="btn btn-secondary my-2 my-sm-0 button" type="submit">Log out</button>
      </form>
-   </div>
+     {% else %}
+     <a href="{{ url_for('login') }}" class="btn btn-secondary my-2 my-lg-0 button">Log in</a>
+     {% endif %}
+ 
+  </div>
  </nav>
 
  <main role="main" class="container">
@@ -44,6 +58,8 @@
    {% endblock %}
 
  </main><!-- /.container -->
+ 
+</div>
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
    crossorigin="anonymous"></script>
